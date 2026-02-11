@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CreatorStack</title>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            margin: 0;
+            padding: 60px 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #181818;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 35px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #111;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid #555;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            background: #ffffff;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            margin-left: 10px;
+            border: 3px solid #ccc;
+            border-top: 3px solid #000;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .output {
+            margin-top: 40px;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #555;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CreatorStack</h1>
+        <p class="subtitle">AI Growth Tools for Serious Creators</p>
+
+        <form method="POST" onsubmit="handleSubmit()">
+            <input type="text" name="topic" placeholder="Video Topic" required>
+            <input type="text" name="content_type" placeholder="Content Type (Vlog, Review, Shorts)" required>
+            <input type="text" name="platform" placeholder="Platform (YouTube, Instagram)" required>
+
+            <button id="generateBtn" type="submit">
+                <span id="btnText">Generate Script</span>
+                <span id="spinner" class="spinner"></span>
+            </button>
+        </form>
+
+        {% if output %}
+            <div class="output">
+                <h3>Generated Output</h3>
+                {{ output }}
+            </div>
+        {% endif %}
+
+        <div class="footer">
+            © 2026 CreatorStack · Built for Serious Creators
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit() {
+            const btn = document.getElementById("generateBtn");
+            const spinner = document.getElementById("spinner");
+            const btnText = document.getElementById("btnText");
+
+            btn.disabled = true;
+            btnText.textContent = "Generating...";
+            spinner.style.display = "inline-block";
+        }
+    </script>
+</body>
+</html>
