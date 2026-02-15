@@ -4,106 +4,123 @@
     <title>CreatorStack</title>
 
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-            margin: 0;
-            padding: 60px 20px;
-            color: #fff;
-        }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        padding: 60px 20px;
+        color: #fff;
 
-        .container {
-            max-width: 700px;
-            margin: auto;
-            background: #181818;
-            padding: 40px;
-            border-radius: 14px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+        /* Dark base */
+        background-color: #0a0f1f;
 
-        h1 {
-            font-size: 34px;
-            margin-bottom: 5px;
-            letter-spacing: -1px;
-        }
+        /* Honeycomb pattern */
+        background-image:
+            linear-gradient(30deg, #0a0f1f 12%, transparent 12.5%, transparent 87%, #0a0f1f 87.5%, #0a0f1f),
+            linear-gradient(150deg, #0a0f1f 12%, transparent 12.5%, transparent 87%, #0a0f1f 87.5%, #0a0f1f),
+            linear-gradient(90deg, #00bfff 2px, transparent 2px),
+            linear-gradient(#00bfff 2px, transparent 2px);
 
-        .subtitle {
-            color: #aaa;
-            margin-bottom: 35px;
-        }
+        background-size: 40px 70px, 40px 70px, 40px 40px, 40px 40px;
+        background-position: 0 0, 0 0, 0 0, 0 0;
+    }
 
-        input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 18px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background: #111;
-            color: #fff;
-            font-size: 14px;
-        }
+    .container {
+        max-width: 700px;
+        margin: auto;
+        background: rgba(15, 20, 40, 0.95);
+        padding: 40px;
+        border-radius: 14px;
+        box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+        backdrop-filter: blur(8px);
+    }
 
-        input:focus {
-            outline: none;
-            border: 1px solid #555;
-        }
+    h1 {
+        font-size: 34px;
+        margin-bottom: 5px;
+        letter-spacing: -1px;
+    }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            border: none;
-            background: #ffffff;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .subtitle {
+        color: #7fdfff;
+        margin-bottom: 35px;
+    }
 
-        button:hover {
-            opacity: 0.85;
-        }
+    input {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        border: 1px solid #1e90ff;
+        background: #11162a;
+        color: #fff;
+        font-size: 14px;
+    }
 
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+    input:focus {
+        outline: none;
+        border: 1px solid #00bfff;
+        box-shadow: 0 0 8px #00bfff;
+    }
 
-        .spinner {
-            display: none;
-            width: 18px;
-            height: 18px;
-            margin-left: 10px;
-            border: 3px solid #ccc;
-            border-top: 3px solid #000;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-        }
+    button {
+        width: 100%;
+        padding: 14px;
+        border-radius: 8px;
+        border: none;
+        background: #00bfff;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+    button:hover {
+        background: #1ecfff;
+    }
 
-        .output {
-            margin-top: 40px;
-            padding: 20px;
-            background: #111;
-            border-radius: 10px;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
 
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #555;
-            font-size: 13px;
-        }
-    </style>
+    .spinner {
+        display: none;
+        width: 18px;
+        height: 18px;
+        margin-left: 10px;
+        border: 3px solid #fff;
+        border-top: 3px solid transparent;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .output {
+        margin-top: 40px;
+        padding: 20px;
+        background: #11162a;
+        border-radius: 10px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        border: 1px solid #1e90ff;
+        box-shadow: 0 0 15px rgba(0,191,255,0.3);
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #7fdfff;
+        font-size: 13px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -130,8 +147,8 @@
         {% endif %}
 
         <div class="footer">
-            © 2026 CreatorStack · Built for Serious Creators <br>
-	    Author : Abudl Nabi Shaik
+            © 2026 CreatorStack · Turn Ideas Into High-Retention Content <br>
+	    Crafted by : Abdul Nabi Shaik
         </div>
     </div>
 
